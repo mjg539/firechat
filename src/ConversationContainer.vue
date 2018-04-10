@@ -1,6 +1,6 @@
 <template>
   <div>
-    Conversation ID: {{ id }}
+    <b>Conversation ID:</b> {{ id }} <b>Time: </b> {{ new Date().toLocaleTimeString() }}
     <hr>
     <Message 
       v-for="message in conversation.messages" 
@@ -8,7 +8,7 @@
       :key="message.created" 
     />
     <br />
-    <input v-model="newMessageText" @keyup.enter="send" placeholder="Type something..." />
+    <input v-model="newMessageText" @keyup.enter="send" id="input" placeholder="Type something..." />
   </div>
 </template>
 
@@ -51,16 +51,12 @@
     },
     methods: {
       send () {
-        console.log(this.newMessageText);
-        console.log(Date.now);
-        console.log(this.id);
-        console.log(this.$store.state.users.currentUser);
         this.$store.dispatch('conversations/sendMessage', { 
           text: this.newMessageText, 
           created: Date.now(),
           conversationId: this.id,
           sender: this.$store.state.users.currentUser
-        })  
+        })
       }
     },
 

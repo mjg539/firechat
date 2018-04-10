@@ -1,8 +1,8 @@
 <template>
   <div class="message-container">
     <div :class="getPosition">
-      {{ message.text }}
-    </div>
+      <b>{{message.sender}}:</b> {{ message.text }}
+      </div>
   </div>
 </template>
 
@@ -31,10 +31,11 @@
 
 <style scoped>
 .my.message {
-  text-align: right;
+  text-align: left;
 }
-
+/*
 .message-container {
-  border: 1px solid silver;
-}
+
+}*/
+
 </style>

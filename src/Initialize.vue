@@ -1,7 +1,7 @@
 <template>
     <div>
         <button @click="init">Initialize app base state</button>
-        <button @click="get">Get</button>
+        <button @click="get"> Start Talking</button>
     </div>
 </template>
 

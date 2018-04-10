@@ -4,6 +4,8 @@ import store from './store'
 
 new Vue({
   el: '#app',
+  components: { App },
+  template: '<App/>',
   store,
   render: h => h(App)
 })

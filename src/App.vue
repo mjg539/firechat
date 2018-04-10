@@ -1,6 +1,9 @@
 <template>
-  <div>
+  <div id="app">
     <Initialize/>
+    <UserInfo
+    v-on:nameEvent="updateUserName"/>
+    <br>
     <ConversationContainer
       v-for="id in convoIds"
       :conversation="conversations[id]"
@@ -15,6 +18,7 @@
 <script>
 import Initialize from './Initialize.vue'
 import ConversationContainer from './ConversationContainer.vue'
+import UserInfo from './UserInfo.vue'
 
 import { mapState } from 'vuex'
 
@@ -24,6 +28,7 @@ export default {
   components: {
     Initialize,
     ConversationContainer,
+    UserInfo,
   },
 
   computed: {
@@ -32,6 +37,18 @@ export default {
       convoIds: state => state.conversations.allIds
     })
   },
+
+  data(){
+    return{
+      userName: this.state.currentUser,
+    }
+  },
+  
+  methods: {
+    updateUserName: function updateUserName(userName){
+      console.log(userName);
+    }
+  }
 
 };
 
