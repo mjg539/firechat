@@ -1,8 +1,13 @@
 <template>
+  <div>
+    <b><p>{{ message.displayUser }}: </p></b>
   <div class="message-container">
     <div :class="getPosition">
-      <b>{{message.sender}}:</b> {{ message.text }}
-      </div>
+      <ul>
+        {{ message.text }}
+      </ul>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -11,10 +16,13 @@
     name: 'Message',
 
     props: {
+      displayUser: {
+        type: String,
+      },
       message: {
         type: Object,
         required: true
-      }
+      },
     },
 
     computed: {
@@ -32,10 +40,9 @@
 <style scoped>
 .my.message {
   text-align: left;
+  margin-left: 16px;
+  font-size: 12px;
 }
-/*
-.message-container {
 
-}*/
 
 </style>

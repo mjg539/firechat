@@ -1,7 +1,8 @@
 <template>
     <div>
-        <button @click="init">Initialize app base state</button>
-        <button @click="get"> Start Talking</button>
+        <button class="button" @click="init">Initialize app base state</button>
+        <button class="button" @click="get"> Start Talking</button>
+        <!--button class="button" @click="clear"> Clear </button-->
     </div>
 </template>
 

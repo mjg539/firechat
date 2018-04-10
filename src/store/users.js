@@ -1,6 +1,6 @@
 const state = {
     all: {},
-    currentUser: 'mr_b',
+    currentUser: 'mr_c',
 }
 
 const mutations = {

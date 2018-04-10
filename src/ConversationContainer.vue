@@ -1,14 +1,16 @@
 <template>
   <div>
-    <b>Conversation ID:</b> {{ id }} <b>Time: </b> {{ new Date().toLocaleTimeString() }}
-    <hr>
+  <div class = "conversation" id = "conversation">
+    <b class="lightgreen">Conversation ID:</b> {{ id }} 
     <Message 
+      :displayUser="displayUser"
       v-for="message in conversation.messages" 
       :message="message" 
       :key="message.created" 
     />
+    </div>
     <br />
-    <input v-model="newMessageText" @keyup.enter="send" id="input" placeholder="Type something..." />
+    <input class="input" v-model="newMessageText" @keyup.enter="send" id="inputField" placeholder="Type something..." />
   </div>
 </template>
 
@@ -33,7 +35,8 @@
       id: {
         type: String,
         required: true
-      }
+      },
+      displayUser: String,
     },
 
     created () {
@@ -55,9 +58,20 @@
           text: this.newMessageText, 
           created: Date.now(),
           conversationId: this.id,
-          sender: this.$store.state.users.currentUser
+          sender: this.$store.state.users.currentUser,
+          displayUser: this.displayUser,
         })
-      }
+        this.clear();
+        this.scroll();
+      },
+      clear () {
+        this.newMessageText = '';
+      },
+      scroll () {
+        var element = document.getElementById("conversation");
+        element.scrollTop = element.scrollHeight;
+        setTimeout(1000);
+      },
     },
 
     components: {
@@ -66,6 +80,6 @@
   }
 </script>
 
-<style scoped>
+<style>
 </style>
 
