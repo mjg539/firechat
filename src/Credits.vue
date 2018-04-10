@@ -1,7 +1,6 @@
 <template>
     <p>
         Chat app built by Mitchell Gaertner to explore Vue.js and Firestore
-        Hosted with Firebase
     </p>
 </template>
 

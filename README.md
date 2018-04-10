@@ -11,9 +11,10 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
-```
+## User Guide ##
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-#firechat
+Once the program is running on localhost:8080, any number of web clients can connect to the web page and join the chat. If deployed to a web host, multiple users could connect from distinct machines. 
+
+If no conversations exist, one must be initialized by clicking the initialize button. Otherwise, click Start talking to join the chat. All users share the same default name, but the display name can be changed at any point using the input field under user info.
+
+The chat is stored within the Firestore database. As long as a chat instance exists, the start talking button adds the user to the chat. 
