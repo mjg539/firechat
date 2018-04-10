@@ -1,0 +1,59 @@
+  <div id="app">
+    <div id="app">
+<h1>Messages</h1>
+<div class="list-group">
+  <ul v-bind:messages="messages"
+      v-for="item in messages"
+      :key="item">
+      <span>
+        <div class="username"><b>{{ name }}: </b>
+        {{ new Date().toLocaleTimeString() }}</div>
+        <div class="message"> {{ item }} </div>
+      </span>
+  </ul>
+</div>
+<p>
+  <br>
+  <input v-on:keyup.13="submit" id="message" type="text" name="message" autocomplete="off">
+  <button v-on:click="submit" > Submit </button>
+  <br>
+  <br>
+</p>
+
+</div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+
+ data(){
+    return{
+      messages: [
+      ],
+      name: 'Stirner',
+    }
+  },
+  methods: {
+    submit: function submit() {
+      var message = document.getElementById("message");
+      this.messages.push(message.value);
+      message.value = "";
+    },
+    getDate: function getDate(){
+      var date = new Date(unix_timestamp*1000);
+      var hours = date.getHours();
+      var minutes = "0" + date.getMinutes();
+      var seconds = "0" + date.getSeconds();
+
+      return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    }
+  }
+
+  
+.message{
+  margin-left:12px;
+}
+.username{
+  font-weight:'bold';
+}
